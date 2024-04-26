@@ -1,0 +1,78 @@
+# Spring 설정
+spring:
+  datasource:
+    hikari:
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#      jdbc-url: jdbc:log4jdbc:mariadb://idev15-db.fassto.ai:3306/fsswms?useUnicode=true&characterEncoding=utf8mb4&autoReconnect=true&allowMultiQueries=true
+      jdbc-url: jdbc:log4jdbc:mariadb://istg15-db.fassto.ai:3306/fsswms?useUnicode=true&characterEncoding=utf8mb4&autoReconnect=true&allowMultiQueries=true
+
+#      jdbc-url: jdbc:log4jdbc:mariadb://13.209.177.70:3306/fsswms?useUnicode=true&characterEncoding=utf8mb4&autoReconnect=true&allowMultiQueries=true
+#      jdbc-url: jdbc:log4jdbc:mariadb://43.201.26.93:3306/fsswms?useUnicode=true&characterEncoding=utf8mb4&autoReconnect=true&allowMultiQueries=true
+      maximum-pool-size: 4
+      minimum-idle: 1
+      username: fsswms
+#      password: FssWmsDev#0526
+#      password: FssWmsDev#0526
+      password: FssWmsLiv#0822
+      connection-timeout: 60000
+      max-lifetime: 600000
+
+  # Redis 설정 (VPN 활성화 필요)
+  data:
+    redis:
+      host: dev-fms-redis.fassto.ai
+      port: 6379
+
+# Redis Lock Timeout
+lock:
+  wait-time: 60
+  lease-time: 100
+
+# Prometheus 설정
+management:
+  server:
+    port: 1809
+
+# timeout 설정
+server:
+  port: 1809
+  tomcat:
+    connection-timeout: 90000
+
+# fassto servers
+fassto:
+  connectivity:
+    url: https://dev-connapi.fassto.ai
+#    url: https://stg-connapi.fassto.ai
+    max-connections: 100
+  wcs:
+    url: http://istg-wcszinapi.fassto.ai:10900
+    max-connections: 100
+  wcs-gg05:
+    url: http://183.99.7.38:9517
+    max-connections: 100
+  notice:
+    url: http://172.31.24.34:8080
+    max-connections: 100
+
+# 택배 주소정제 API 속성
+address:
+  logistics:
+    lotte:
+      base-url: http://devapigw.llogis.com:10110
+      authorization: IgtAK eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJDMDEwMjUxIiwiYXVkIjoiQzAxMDI1MSIsIm5hbWUiOiJGU1NTSEMiLCJleHAiOjE1MzUxMzU1OTk5OTksImlhdCI6MTU3MDc1OTIxOH0.AaiwFV53AOG8-fH5oTMhuaBiZo5oIUGhdhCERqu0Kw4
+    cj:
+      base-url: http://172.31.18.195:8080
+  sweet-tracker:
+    base-url: http://dev-delivery.fassto.ai
+
+# Slack Webhook
+slack:
+  webhook:
+    active: false
+    url: https://hooks.slack.com/services/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
+
+
+mybatis:
+  configuration:
+    cache-enabled: false
