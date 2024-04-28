@@ -2,21 +2,23 @@ package com.fassto.godomallorderapi.domain.order
 
 import com.fassto.godomallorderapi.domain.Person
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RestController
+import javax.print.attribute.IntegerSyntax
 
-class GodomallOrderController(port : Int) {
+@RestController
+class GodomallOrderController() {
 
-    @Value("\${redis.data.port}")
-    private val port : Int = 0
-
-    @RequestMapping("/api")
+    @GetMapping("/api")
     fun api() : String {
         return "api"
     }
 
-    @RequestMapping("/api/body", method = [RequestMethod.POST])
+    @PostMapping("/api/body")
     fun apiBody(@RequestBody person : Person) : String {
         return "api"
     }
