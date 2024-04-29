@@ -14,12 +14,16 @@ class LoggingFilter : Filter {
 
     private val log = this.logger()
 
-    override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
-        val br = request!!.reader
+    override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain) {
 
-        val brList = br.lines().toList()
+        val br = request!!.inputStream
+        var requestByteArray: ByteArray = br.readAllBytes()
+        val payload = String(requestByteArray)
 
-        log.info("payload : ", brList)
+        log.info("payload : $payload")
+
+        // chain안에 있는 그 다음 필터를 호출하도록 한다. chain.doFilter 호출하지 않으면 중단
+        chain.doFilter(request, response)
 
     }
 
