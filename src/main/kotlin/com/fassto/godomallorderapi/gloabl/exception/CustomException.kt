@@ -1,13 +1,16 @@
 package com.fassto.godomallorderapi.gloabl.exception
 
 import com.fassto.godomallorderapi.gloabl.error.ErrorCode
+import com.fassto.godomallorderapi.gloabl.error.ExceptionEnum
 import org.springframework.http.HttpStatus
 
 
-class CustomException : RuntimeException() {
-    val errorCode: ErrorCode,
+open class CustomException (
+    val errorCode: ExceptionEnum,
+    val errorMessage: String = errorCode.message
+) : RuntimeException()
 
-    private companion object defaultErrorCodeHolder {
+    /*private companion object defaultErrorCodeHolder {
 
         val name: String = "SERVER_ERROR"
 
@@ -23,15 +26,6 @@ class CustomException : RuntimeException() {
             return CustomException("SERVER_ERROR")
         }
 
-    }
+    }*/
 
 
-    constructor(message: String) : super(errorCode) {
-        errorCode = defaultErrorCode()
-
-    }
-
-    constructor(cause: Throwable, errorCode: ErrorCode) : super(errorCode) {
-        super(errorCode.)
-    }
-}
