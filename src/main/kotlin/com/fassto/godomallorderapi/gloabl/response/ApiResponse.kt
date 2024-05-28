@@ -13,3 +13,6 @@ data class ApiResponse<T>(
 
     constructor (code: Int, message: String) : this(code, message, null)
 }
+
+typealias SalesOrderResponseList = ApiResponse<List<OmsOrderResponseDto>>
+//typealias SalesReturnResponseList = ApiResponse<List<SalesReturnResponseDto>>

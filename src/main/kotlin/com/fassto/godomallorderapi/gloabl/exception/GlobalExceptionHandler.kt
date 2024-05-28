@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 @RestControllerAdvice
 class GlobalExceptionHandler {
 
-    @ExceptionHandler(CustomException::class)
+    /*@ExceptionHandler(CustomException::class)
     fun handleCustomException(e: CustomException): ResponseEntity<ApiResponse<Nothing>> {
         return ResponseEntity(ApiResponse.create(e.errorCode.code, e.errorCode.message), HttpStatusCode.valueOf(e.errorCode.code))
     }
@@ -23,6 +23,6 @@ class GlobalExceptionHandler {
     fun handleCommonException(e: Throwable): ResponseEntity<ApiResponse<Nothing>> {
         val commonResponse: ApiResponse<Nothing> = ApiResponse(ExceptionEnum.SERVER_ERROR.code, ExceptionEnum.SERVER_ERROR.message)
         return internalServerError().body(commonResponse)
-    }
+    }*/
 
 }

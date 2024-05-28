@@ -1,6 +1,8 @@
 package com.fassto.godomallorderapi.domain.order
 
 import com.fassto.godomallorderapi.domain.Person
+import com.fassto.godomallorderapi.gloabl.response.ApiResponse
+import com.fassto.godomallorderapi.gloabl.response.OmsOrderResponseDto
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -13,10 +15,10 @@ import javax.print.attribute.IntegerSyntax
 @RestController
 class GodomallOrderController() {
 
-    @GetMapping("/api")
-    fun api() : String {
+    /*@GetMapping("/batch/order")
+    fun batchOrder() : ApiResponse<OmsOrderResponseDto> {
         return "api"
-    }
+    }*/
 
     @PostMapping("/api/body")
     fun apiBody(@RequestBody person : Person) : String {

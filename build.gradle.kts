@@ -32,7 +32,6 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.springframework.kafka:spring-kafka")
 	implementation("org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client:3.3.2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
