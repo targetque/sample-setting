@@ -1,27 +1,23 @@
 package com.fassto.godomallorderapi.domain.order
 
-import com.fassto.godomallorderapi.domain.Person
+import com.fassto.godomallorderapi.domain.dto.OrderDTO
+import com.fassto.godomallorderapi.domain.order.service.GodomallOrderService
 import com.fassto.godomallorderapi.gloabl.response.ApiResponse
 import com.fassto.godomallorderapi.gloabl.response.OmsOrderResponseDto
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RestController
-import javax.print.attribute.IntegerSyntax
+import org.springframework.web.bind.annotation.*
 
 @RestController
-class GodomallOrderController() {
+@RequestMapping("/api/v1/order")
+class GodomallOrderController(
+    private val godomallOrderService : GodomallOrderService,
+) {
 
-    /*@GetMapping("/batch/order")
-    fun batchOrder() : ApiResponse<OmsOrderResponseDto> {
-        return "api"
-    }*/
 
-    @PostMapping("/api/body")
-    fun apiBody(@RequestBody person : Person) : String {
+    @PostMapping("")
+    fun batchOrder(@RequestBody(required = false) orderDTO : OrderDTO?) : String {
+
+        godomallOrderService.order()
+
         return "api"
     }
 

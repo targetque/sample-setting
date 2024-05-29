@@ -29,15 +29,20 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("jakarta.validation:jakarta.validation-api:3.1.0-M1")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.springframework.kafka:spring-kafka")
 	implementation("org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16")
+
+	implementation("io.springfox:springfox-swagger2:3.0.0")
+
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client:3.3.2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
+
 }
 
 dependencyManagement {

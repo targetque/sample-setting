@@ -24,6 +24,7 @@ enum class ExceptionEnum(
     GOD_SHORTAGE(HttpStatus.BAD_REQUEST, BAD_REQUEST.value(), "%s(%s)의 재고가 부족합니다.(현재고: %d)"),
     EMPTY_PARAM(HttpStatus.BAD_REQUEST, BAD_REQUEST.value(), "%s이(가) 없습니다."),
     INVALID_PARAM(HttpStatus.BAD_REQUEST, BAD_REQUEST.value(), "%s이(가) 잘못되었습니다."),
+    CHECK_REQUEST_VALUES(HttpStatus.BAD_REQUEST, BAD_REQUEST.value(), "요청 변수의 형식이 잘못됐습니다."),
 
 
    /* constructor(status: HttpStatus, code: String, message: String) {
